@@ -5,7 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student Feedback Registration Form</title>
+  <script>
+    document.getElementById("feedbackForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      document.getElementById("formMessage").innerText = "Feedback submitted successfully.";
+    });
 
+    document.getElementById("resetBtn").addEventListener("click", function () {
+      document.getElementById("formMessage").innerText = "Form reset successfully.";
+    });
+  </script>
   <style>
     body {
       font-family: Arial, sans-serif;
