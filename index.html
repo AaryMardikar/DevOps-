@@ -2,20 +2,10 @@
 <html lang="en">
 
 <head>
-  <script src="script.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student Feedback Registration Form</title>
-  <script>
-    document.getElementById("feedbackForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      document.getElementById("formMessage").innerText = "Feedback submitted successfully.";
-    });
 
-    document.getElementById("resetBtn").addEventListener("click", function () {
-      document.getElementById("formMessage").innerText = "Form reset successfully.";
-    });
-  </script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -103,31 +93,27 @@
 
     <form id="feedbackForm" novalidate>
 
-      <!-- Name -->
       <div class="field">
-        <label for="studentName">Student Name</label>
-        <input type="text" id="studentName" name="studentName" required>
-        <small class="error" id="studentNameError"></small>
+        <label>Student Name</label>
+        <input type="text" id="studentName" name="studentName">
+        <small id="studentNameError" class="error"></small>
       </div>
 
-      <!-- Email -->
       <div class="field">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-        <small class="error" id="emailError"></small>
+        <label>Email</label>
+        <input type="email" id="email" name="email">
+        <small id="emailError" class="error"></small>
       </div>
 
-      <!-- Mobile -->
       <div class="field">
-        <label for="mobile">Mobile Number</label>
-        <input type="tel" id="mobile" name="mobile" required>
-        <small class="error" id="mobileError"></small>
+        <label>Mobile</label>
+        <input type="tel" id="mobile" name="mobile">
+        <small id="mobileError" class="error"></small>
       </div>
 
-      <!-- Department -->
       <div class="field">
-        <label for="department">Department</label>
-        <select id="department" name="department" required>
+        <label>Department</label>
+        <select id="department" name="department">
           <option value="">Select</option>
           <option>Computer Science</option>
           <option>IT</option>
@@ -135,10 +121,9 @@
           <option>Mechanical</option>
           <option>Civil</option>
         </select>
-        <small class="error" id="departmentError"></small>
+        <small id="departmentError" class="error"></small>
       </div>
 
-      <!-- Gender -->
       <div class="field">
         <label>Gender</label>
         <div class="radio-group">
@@ -146,25 +131,27 @@
           <label><input type="radio" name="gender" value="Female"> Female</label>
           <label><input type="radio" name="gender" value="Other"> Other</label>
         </div>
+        <small id="genderError" class="error"></small>
       </div>
 
-      <!-- Comments -->
       <div class="field">
-        <label for="comments">Comments</label>
+        <label>Comments</label>
         <textarea id="comments" name="comments"></textarea>
+        <small id="commentsError" class="error"></small>
       </div>
 
-      <!-- Buttons -->
       <div class="actions">
         <button type="submit" id="submitBtn">Submit</button>
         <button type="reset" id="resetBtn">Reset</button>
       </div>
 
-      <!-- Message -->
       <p id="formMessage" class="message"></p>
 
     </form>
   </div>
+
+  <!-- ✅ CORRECT PLACE -->
+  <script src="./script.js"></script>
 
 </body>
 
