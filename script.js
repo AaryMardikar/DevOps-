@@ -1,6 +1,5 @@
 const form = document.getElementById("feedbackForm");
 const message = document.getElementById("formMessage");
-let suppressResetMessage = false;
 
 function showError(id, text) {
   document.getElementById(id).textContent = text;
@@ -27,7 +26,6 @@ function validateForm() {
   const department = form.department.value;
   const gender = form.querySelector("input[name='gender']:checked");
   const comments = form.comments.value.trim();
-  const commentWords = comments ? comments.split(/\s+/).filter(Boolean).length : 0;
 
   if (!studentName) {
     showError("studentNameError", "Student name should not be empty.");
@@ -57,9 +55,6 @@ function validateForm() {
   if (!comments) {
     showError("commentsError", "Feedback comments should not be blank.");
     valid = false;
-  } else if (commentWords < 10) {
-    showError("commentsError", "Feedback must contain at least 10 words.");
-    valid = false;
   }
 
   return valid;
@@ -71,22 +66,12 @@ form.addEventListener("submit", (event) => {
 
   if (validateForm()) {
     message.textContent = "Feedback submitted successfully.";
-    message.classList.add("success");
-    suppressResetMessage = true;
-    form.reset();
-    suppressResetMessage = false;
-    clearErrors();
   } else {
-    // ✅ FIXED LINE
     message.textContent = "Please fix the errors";
-    message.classList.add("fail");
   }
 });
 
 form.addEventListener("reset", () => {
   clearErrors();
-  if (!suppressResetMessage) {
-    message.textContent = "Form reset successfully.";
-    message.className = "message";
-  }
+  message.textContent = "Form reset successfully.";
 });
