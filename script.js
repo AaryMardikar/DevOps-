@@ -77,7 +77,8 @@ form.addEventListener("submit", (event) => {
     suppressResetMessage = false;
     clearErrors();
   } else {
-    message.textContent = "Please fix the errors before submitting the form.";
+    // ✅ FIXED LINE
+    message.textContent = "Please fix the errors";
     message.classList.add("fail");
   }
 });
