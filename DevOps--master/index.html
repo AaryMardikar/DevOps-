@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Feedback Registration Form</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .card {
+      animation: cardEntry 500ms ease-out;
+    }
+    
+    .subtitle {
+      letter-spacing: 0.2px;
+    }
+
+    @keyframes cardEntry {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-shell">
+    <section class="card" aria-labelledby="form-title">
+      <h1 id="form-title">Student Feedback Registration Form</h1>
+      <p class="subtitle">Please provide your details and share your feedback.</p>
+
+      <form id="feedbackForm" novalidate>
+        <div class="field">
+          <label for="studentName">Student Name</label>
+          <input
+            type="text"
+            id="studentName"
+            name="studentName"
+            placeholder="Enter your full name"
+            minlength="2"
+            maxlength="50"
+            required
+          >
+          <small class="error" id="studentNameError"></small>
+        </div>
+
+        <div class="field">
+          <label for="email">Email ID</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="name@example.com"
+            required
+          >
+          <small class="error" id="emailError"></small>
+        </div>
+
+        <div class="field">
+          <label for="mobile">Mobile Number</label>
+          <input
+            type="tel"
+            id="mobile"
+            name="mobile"
+            placeholder="10-digit mobile number"
+            pattern="[0-9]{10}"
+            maxlength="10"
+            inputmode="numeric"
+            required
+          >
+          <small class="error" id="mobileError"></small>
+        </div>
+
+        <div class="field">
+          <label for="department">Department</label>
+          <select id="department" name="department" required>
+            <option value="">Select your department</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Information Technology">Information Technology</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Mechanical">Mechanical</option>
+            <option value="Civil">Civil</option>
+          </select>
+          <small class="error" id="departmentError"></small>
+        </div>
+
+        <fieldset class="field">
+          <legend>Gender</legend>
+          <div class="radio-row">
+            <label>
+              <input type="radio" name="gender" value="Male" required>
+              Male
+            </label>
+            <label>
+              <input type="radio" name="gender" value="Female">
+              Female
+            </label>
+            <label>
+              <input type="radio" name="gender" value="Other">
+              Other
+            </label>
+          </div>
+          <small class="error" id="genderError"></small>
+        </fieldset>
+
+        <div class="field">
+          <label for="comments">Feedback Comments</label>
+          <textarea
+            id="comments"
+            name="comments"
+            rows="5"
+            placeholder="Share your feedback here"
+            maxlength="500"
+            required
+          ></textarea>
+          <small class="error" id="commentsError"></small>
+        </div>
+
+        <div class="actions">
+          <button type="submit" id="submitBtn">Submit</button>
+          <button type="reset" id="resetBtn" class="secondary">Reset</button>
+        </div>
+
+        <p id="formMessage" class="message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

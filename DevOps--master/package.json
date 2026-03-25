@@ -1,0 +1,12 @@
+{
+  "name": "student-feedback-form",
+  "version": "1.0.0",
+  "description": "Student feedback registration form with Selenium and Jenkins automation",
+  "private": true,
+  "scripts": {
+    "test:selenium": "node --test tests/selenium/form.test.js"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.41.0"
+  }
+}

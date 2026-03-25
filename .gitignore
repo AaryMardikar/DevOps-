@@ -1,0 +1,8 @@
+*.msi
+*.zip
+*.war
+node_modules/
+target/
+apache-maven*
+jdk*
+jenkins*
